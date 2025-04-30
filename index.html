@@ -4,163 +4,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fasih Can Karataş-Web Sitesi</title>
+    <title>Fasih Can Karataş</title>
+    <style>
+        #can {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            float: left;
+            margin-right: 15px;
+            letter-spacing: 3px;
+        }
+
+
+        #dumlupınar {
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        #dumlupınar::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./resimler/uni\ amblem.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 150px;
+            opacity: 0.3;
+            /* Burada şeffaflığı ayarlayabilirsin */
+            z-index: -1;
+        }
+
+
+
+
+
+        #enerji {
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        #enerji::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./resimler/karataş\ energy.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 150px;
+            opacity: 0.3;
+            /* Burada şeffaflığı ayarlayabilirsin */
+            z-index: -1;
+        }
+    </style>
 </head>
-<style>
-    .socila_media {
-        display: flex;
-        margin-top: 15px;
-        justify-content: space-around;
-    }
 
-    .social_medias {
-        display: flex;
-        align-items: center;
-    }
+<body style="background-color: rgb(66, 209, 216);">
+    <h1 style="font-size: 36px;"> Fasih Can KARATAŞ</h1>
+    <img id="can" src="https://media.licdn.com/dms/image/v2/D4D03AQEIwMcJlQDMnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1713957178298?e=2147483647&v=beta&t=MVrLZFNR6DkCrJ12ZlhmbWDWFcnKVcBTMVNp9kIkleA" width="150px" alt="Görüntü Yüklenemedi!!">
+    <h2>Fasih Can Karataş Kimdir?</h2>
+    <br>
+    <a id="insta" href="https://www.instagram.com/karatas_fasih/" target="_blank" title="İnstagram Adresine Gider"> <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAABWVBMVEVyHVFHcEx0Fvp8Fv1yFP1/FfyLCOyfBOmtAeS7AuDHAd3UANjZAs7rD6xyFvzjANTqAMHoA7l2F/yPFfx8GPmfD/zFF/XVWujoZuLyZt3pRt/yGdHyA8j1AKTViPj/9Pr////8g9f9A7r3DZz5vO794Pf+ruj9B6uzFPv7JLv+AJr+BI/+YMP/1vD+AIThG+n9GZn/vd3/YZz+AXP+GoT/r8r+AmT/b5z+HHH+I3f+G2P/ur7+FFD+Klb+fYv/wcr+LUf+LWX+AFn+Nzr+Ohz+RT7+inP+Si7/ztD+TxL/zbv+Wy//9fH+WgL+c1X+ZyX+PUv+Bzv+VXD+cxr/6eL+aQT+eAX+nDj+gwD+gxH+fSL+rYn+jwD+iwL+XhX/3rn/1bH9ZR/+lwP+nwH+xHH8ZC3+qAH+sAD+wAP+x1P+zGb+pl79mQn+uAD9J3T+ygD9O1n8pRL9twuaEkMNAAAAc3RSTlMBAF3G///////////GW9j//9nY/1r///////////7//////8b/////////////////////////////////////////////////////////////////////////////////xf///1v////////Y/9j/2VzGSus+GgAAAeNJREFUeAFFjEWiU0EQRc/tqu74V9wZ4TBiB6wG3wpzVoQ7zHCXeELypHH+KVchJAESaEs0IUv0Zv+7fwLgSAOk9ZFghcnfDw4AAg18cyhWCKNVob9NCZjQLWVrEGhJbJGDoCBpMwCrJTETAKBWgdeRGb4dmJW56PdI/KU1K4X15N+AFsW0+3/WVm7Pa0Pmu4Fh7HcbRIjMIhr3FItUGAH4SNZKjK32YjKpK3Iv0yUY0b8g0Vs0oK+8wbeyMBAQwVeo44R1z7XWq6rqpn5jiTmAeQO3iceg9zkYzKvc71iEmMFbqCJJ4tDcKFrLjX5D/MEdq8GpIUUgd/tgGboTgiUDPDZ44SXNpr0gWRcAgqEmEPJRNVPOxYaOth0oAHdCxWoOzslH+RCvlafYMgFUHvAIHoCjz16io80BrH/j0AAcJ9KWKkhn5sRyGjsDtr/sqyrsWNO1cW9/cDNLZgHLSzVvn+wMq9qbKKwy7TiIaKTW56pzW6Oa+N1OKEQdvvl2RyOE4DEOZurd1cHNeab27tyjOPfhFlucXP04ovF97B6jTOzdJwFLaNAff7N6c8incH1VpiSR67q2VgjzUU7JgbMTiQtFKmgAsCAuczlflmVZn7iGBFc1awB/p4tqUS3LDb8OPwBrSrZIO/KHZwAAAABJRU5ErkJggg=="
+            alt="hatalı giriş yapılıyor"></a>
+    <a id="linkedin" href="https://www.linkedin.com/in/fckaratas-271250260/" target="_blank"
+        title="Linkedin hesabına gider"> <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII="
+            alt="hatalı giriş yapılıyor" width="33"></a>
+    <p id="fasih" style="font-family: 'Georgia', serif;">
+        Fasih Can Karataş, 2000 yılında Mardin Merkez'de dünyaya gelmiştir. Küçük yaşlardan itibaren mühendisliğe
+        ilgi
+        duymuş ve bu alanda kendini geliştirmeyi hedeflemiştir. Mühendislik dizileri, filmleri ve önemli isimleri
+        yakından takip etmiş, lise yıllarında dahi öğretmenlerinin "Ne olacaksın?" sorusuna kararlılıkla "Mühendis!"
+        yanıtını vermiştir.
+        Lise eğitimini Mardin Mehmet Edip Fama Yüksel Anadolu Lisesi'nde tamamladıktan sonra, Kütahya Dumlupınar
+        Üniversitesi Elektrik Elektronik Mühendisliği bölümünü kazanarak mühendislik eğitimine başlamıştır.
+        Üniversite
+        süresince elektrik iç tesisat dizaynı, tasarım, onarım ve yapım aşamalarında deneyim kazanmış; AutoCAD gibi
+        programlarla çizim yapmayı ve EMO şartnamelerine uygun proje tasarımları oluşturmayı öğrenmiştir.
+        Profesyonel kariyerine tesis işletme ve bakım-onarım alanlarında çalışarak devam eden Karataş, yeni
+        tamamlanan
+        projelerde kabul verme ve detaylı incelemeler yaparak elektrik sistemleri konusunda derin bir bilgi birikimi
+        edinmiştir. Özellikle bina, tesis ve şirketlerin kurulumu sırasında dikkat edilmesi gereken elektriksel
+        unsurlar
+        konusunda uzmanlaşmıştır.
+        19 yaşında güneş enerji panelleriyle tanışmış ve çatı üstü GES projelerinde aktif rol almıştır. PV*SOL gibi
+        yazılımlar kullanarak tasarım yapmış, AutoCAD ile projelendirme süreçlerine katkıda bulunmuş, fiyat
+        teklifleri
+        hazırlamış ve iç pazardaki tedarikçilerle iş anlaşmaları gerçekleştirmiştir. Daha sonra direk değişimi,
+        mahalle
+        dağıtım direkleri ve trafoların yenilenmesi gibi projelerde görev alarak saha deneyimini artırmıştır.
+        Elektronik dünyasına adım attıktan sonra, GES sahalarında trafo kurulumu ve ihtiyaç hesaplamaları
+        konularında
+        yetkinlik kazanmıştır. Aynı dönemde Texas Instruments (TI) ile inverter sistemleri üzerine çalışmalar
+        yaparak bu
+        alanda uzmanlaşmaya karar vermiştir. Multisim, PSpice, MATLAB, Proteus ve EasyEDA gibi PCB tasarım
+        yazılımlarını
+        kullanarak kendi sıcaklık ve basınç sensörlerini, jiroskop sensörünü ve GPS sensörünü tasarlamıştır.
+        Roket teknolojilerine olan ilgisi sayesinde bir roket takımında Aviyonik Birim Sorumlusu olarak görev almış
+        ve
+        burada ana uçuş kontrol kartı, yer istasyonu kontrol kartı ve payload ana kartı tasarımlarını yaparak orta
+        irtifa roket yarışmalarına katılım sağlamıştır.
+        Lisans bitirme projesi kapsamında kendi CNC makinesini tasarlamış ve üretmiş, böylece kişisel PCB üretim
+        süreçlerini de yönetebilir hale gelmiştir. Park sensörleri, harekete duyarlı robotlar ve Otto robot
+        projeleri
+        tamamlamış; Otto robotu geliştirerek hareket halinde çalışabilen bir hava savunma robotuna dönüştürmüştür.
+        Bu
+        robot sistemine radar ve küçük plastik mermi atabilen bir mekanizma entegre etmiştir.
+        Son olarak, kendi DIY uçağını tasarlayıp uçurmayı başarmıştır. Günümüzde 5MW ve 9MW kapasiteli güneş enerji
+        santrallerinin kurulum ve kabul süreçlerinde aktif olarak görev almaktadır.
+    </p>
 
-    .social_medias img {
-        width: 40px;
-        height: 40px;
-        margin-left: 8px;
-        margin-right: 3px;
-    }
+    <br>
+
+    <hr>
+    <h2>Dumlupınar Üniversitesi</h2>
+    <p id="dumlupınar">Kütahya Dumlupınar Üniversitesi Elektrik-Elektronik Mühendisliği Bölümü, 1992 yılında kurulmuş
+        olup,
+        Türkiye’nin önde
+        gelen mühendislik fakültelerinden biri olarak eğitim ve araştırma faaliyetlerini sürdürmektedir. Bölüm,
+        öğrencilere
+        temel mühendislik bilgileri ile birlikte elektrik-elektronik sistemlerinin tasarımı, analizi ve uygulanması
+        konusunda
+        kapsamlı bir eğitim sunmaktadır. Eğitim programında devre teorisi, elektromanyetik alanlar, sinyaller ve
+        sistemler,
+        mikrodenetleyiciler, güç sistemleri, haberleşme sistemleri, kontrol sistemleri gibi temel dersler
+        bulunmaktadır. Bunun
+        yanı sıra, bilgisayar destekli tasarım, yapay zeka uygulamaları, gömülü sistemler, yenilenebilir enerji
+        kaynakları ve
+        ileri seviye güç elektroniği gibi modern teknolojilere yönelik dersler de müfredatta yer almaktadır.
+        Üniversitenin
+        laboratuvar olanakları, öğrencilerin teorik bilgilerini pratik çalışmalarla pekiştirmelerine olanak
+        tanımakta ve
+        özellikle güç elektroniği, mikroişlemciler, haberleşme sistemleri, yenilenebilir enerji laboratuvarları
+        öğrencilere
+        uygulamalı eğitim sunmaktadır. Kütahya, sanayi ve teknoloji alanında gelişmekte olan bir şehir olup, bu
+        durum
+        üniversitenin çeşitli sanayi kuruluşlarıyla iş birlikleri geliştirmesine olanak tanımaktadır. Dumlupınar
+        Üniversitesi,
+        TÜBİTAK projeleri, sanayi destekli araştırmalar ve uluslararası iş birlikleriyle akademik çalışmalarını
+        güçlendirmektedir. Elektrik-elektronik mühendisliği bölümü, özellikle yenilenebilir enerji sistemleri ve güç
+        elektroniği
+        alanlarında yaptığı araştırmalarla dikkat çekmektedir. Bölüm, ayrıca çeşitli öğrenci toplulukları ve
+        projelerle
+        öğrencilerini desteklemekte, onları akademik ve profesyonel hayata daha iyi hazırlamaktadır. Mezunları,
+        enerji sektörü,
+        haberleşme, otomasyon, savunma sanayi, elektronik üretim ve yazılım alanlarında geniş bir yelpazede iş
+        imkanlarına sahip
+        olmaktadır. Birçok mezunu Türkiye'nin büyük şirketlerinde, ASELSAN, ROKETSAN, HAVELSAN, TUSAŞ gibi savunma
+        sanayii
+        kuruluşlarında, enerji firmalarında ve uluslararası teknoloji şirketlerinde önemli pozisyonlarda görev
+        almaktadır.
+        Ayrıca, bazı mezunlar akademik kariyerlerine devam ederek, çeşitli üniversitelerde öğretim üyesi olarak
+        çalışmakta ve
+        bilimsel araştırmalara katkı sağlamaktadır. Özellikle güç elektroniği, haberleşme ve kontrol sistemleri
+        alanlarında
+        yaptığı akademik çalışmalarla dikkat çeken bölüm, Türkiye’nin teknoloji ve sanayi alanındaki gelişimine
+        önemli katkılar
+        sunmaktadır. Üniversitenin bilimsel araştırmalara verdiği önem, öğrencilerin yüksek lisans ve doktora
+        eğitimine
+        yönelmeleri için teşvik edici bir ortam sağlamaktadır. Elektrik-elektronik mühendisliği bölümü, AR-GE
+        faaliyetleri ile
+        birlikte sanayi ile iş birliği içinde projeler üreterek ülkenin teknolojik gelişimine doğrudan katkı
+        sağlamaktadır.
+        Özellikle elektrikli araçlar, akıllı şebekeler, yapay zeka destekli elektronik sistemler gibi konular
+        üzerinde yürütülen
+        projeler, öğrencilerin sektöre daha donanımlı bir şekilde katılmasına yardımcı olmaktadır. Bölüm,
+        uluslararası
+        akreditasyon standartlarına uygun eğitim anlayışıyla mezunlarının küresel iş piyasasında da rekabetçi
+        olmasını
+        sağlamaktadır. Kütahya Dumlupınar Üniversitesi, Erasmus ve Mevlana gibi uluslararası değişim programları
+        sayesinde
+        öğrencilerine yurtdışında eğitim alma ve farklı ülkelerde mühendislik deneyimi kazanma fırsatı sunmaktadır.
+        Böylece
+        mezunlar, sadece Türkiye'de değil, dünya çapında birçok ülkede mühendis olarak çalışma imkanına sahip
+        olmaktadır.
+        Mezunlarının bir kısmı, özellikle Avrupa ve Amerika'daki teknoloji firmalarında yazılım mühendisi, sistem
+        mühendisi veya
+        proje yöneticisi olarak kariyerlerine devam etmektedir. Akademik kadrosu güçlü olan bölüm, öğrencilerine
+        teorik
+        bilgilerin yanı sıra sektörel deneyim kazandırmayı hedeflemekte ve bu doğrultuda sektör profesyonellerini
+        seminer ve
+        etkinliklere davet etmektedir. Ayrıca, mühendislik öğrencilerinin sektörde daha rekabetçi hale gelmesi için
+        girişimcilik, proje yönetimi ve yenilikçi teknolojiler gibi alanlarda çeşitli seminerler ve eğitimler
+        düzenlenmektedir.
+        Bölüm, her yıl düzenlediği bitirme projeleri sergisi ile öğrencilerin inovatif fikirlerini ve mühendislik
+        çözümlerini
+        sunmalarına olanak tanımaktadır. Mezuniyet sonrası istihdam oranları oldukça yüksek olan bölüm, özellikle
+        savunma
+        sanayii, enerji ve otomasyon sektörlerinde büyük firmalarla olan iş birlikleri sayesinde öğrencilerine geniş
+        kariyer
+        imkanları sunmaktadır. Sonuç olarak, Kütahya Dumlupınar Üniversitesi Elektrik-Elektronik Mühendisliği
+        Bölümü,
+        öğrencilerine hem akademik hem de uygulamalı eğitim olanakları sunarak, onları sektörün ihtiyaç duyduğu
+        nitelikli
+        mühendisler olarak yetiştirmeyi amaçlamakta ve ülkenin bilimsel ve teknolojik gelişimine katkıda
+        bulunmaktadır.
+
+    </p>
+    <hr>
+    <h3>KARATAŞ ENERGY</h3>
+    <p id="enerji">Karataş Energy, Ahmet Karataş ve Fasih Can Karataş tarafından baba-oğul temeliyle 17 Eylül 2023
+        tarihinde kurulmuş olup,
+        kısa sürede yenilenebilir enerji sektöründe önemli projelere imza atarak sektörde kendine sağlam bir yer
+        edinmiştir.
+        Şirket, özellikle güneş enerjisi alanında yoğunlaşarak birçok başarılı projeyi hayata geçirmiş ve
+        sürdürülebilir enerji
+        kaynaklarının kullanımını teşvik etmiştir. Bununla birlikte, elektrik iletim, dağıtım ve üretim tesislerinde
+        de geniş
+        çaplı hizmetler sunarak enerji sektörünün farklı alanlarında faaliyet göstermektedir. Şirketin
+        gerçekleştirdiği projeler
+        arasında 5MW kapasiteli Malatya Arapgir GES sahasının kurulumu ve işletmesi önemli bir yer tutarken,
+        Batmanda ise biri
+        7MW diğeri 9MW olmak üzere iki farklı GES sahasının kurulumunu ve denetimini başarıyla tamamlamıştır. Bu
+        projelerde
+        yalnızca sahaların inşasıyla kalmamış, aynı zamanda ana dağıtım şebekelerine bağlantılarının sağlanması
+        sürecinde de
+        aktif rol alarak teknik uzmanlığını kanıtlamıştır. Karataş Energy, büyük ölçekli yenilenebilir enerji
+        projelerinin yanı
+        sıra çeşitli firmaların tesis işletme, bakım ve koruma hizmetlerini de üstlenerek enerji sektöründe kapsamlı
+        çözümler
+        sunmaktadır. Güçlü ve dinamik ekibiyle, elektrik ve enerji alanındaki tüm projelerde profesyonel bir
+        anlayışla hareket
+        eden firma, kalite ve müşteri memnuniyeti odaklı çalışmalarıyla sektörde güvenilir bir isim haline
+        gelmiştir. Güneş
+        enerjisi alanındaki bilgi birikimini, sürekli gelişen teknolojilere uyum sağlayarak daha da ileriye taşımayı
+        hedefleyen
+        Karataş Energy, geleceğin enerji sistemlerine katkıda bulunmak adına yeni projeler üzerinde çalışmaya devam
+        etmektedir.
+        Sahip olduğu mühendislik ve proje yönetimi yetkinlikleri sayesinde, sadece Türkiye’de değil, ilerleyen
+        dönemde
+        uluslararası arenada da projeler geliştirmeyi planlayan firma, enerji sektöründeki değişen dinamikleri
+        yakından takip
+        ederek en verimli ve yenilikçi çözümleri sunma hedefiyle ilerlemektedir. Güneş enerjisi sahalarının kurulum
+        sürecinde en
+        verimli lokasyonların seçimi, panellerin optimal açılarla yerleştirilmesi, invertör sistemlerinin
+        entegrasyonu ve
+        şebekeye bağlantı aşamaları gibi teknik detaylarda yüksek mühendislik standartlarına bağlı kalan Karataş
+        Energy, bu
+        alandaki uzmanlığını her yeni projede daha da ileriye taşımaktadır. Enerji sektöründe sadece sahaların
+        kurulumu ile
+        değil, aynı zamanda bakım ve denetim süreçlerinde de etkin bir rol oynayarak uzun vadeli çözümler üretmekte
+        ve sahaların
+        maksimum verimlilikle çalışmasını sağlamaktadır. Şirketin bugüne kadar gerçekleştirdiği projeler, güneş
+        enerjisinin
+        Türkiye’deki yaygınlaşmasına katkı sağlamış ve bu alandaki yatırımları teşvik eden bir örnek teşkil
+        etmiştir. Bununla
+        birlikte, elektrik iletim ve dağıtım alanındaki projeleriyle de büyük ölçekli altyapı çalışmalarına katkı
+        sunan Karataş
+        Energy, enerji ağlarının daha güvenli ve verimli çalışmasını sağlamak için çeşitli modernizasyon ve
+        geliştirme
+        projelerinde yer almıştır. Şirket, yalnızca büyük ölçekli projelerle değil, aynı zamanda bireysel ve
+        kurumsal
+        müşterilere yönelik özelleştirilmiş enerji çözümleri ile de hizmet sunarak geniş bir müşteri kitlesine hitap
+        etmektedir.
+        Bu doğrultuda, güneş panelleri ve enerji depolama sistemleri gibi çözümlerle müşterilerine sürdürülebilir
+        enerji
+        kullanımı konusunda rehberlik etmektedir. Karataş Energy’nin sunduğu hizmetler, yenilenebilir enerji
+        kaynaklarının
+        kullanımını yaygınlaştırma ve enerji sektörünü daha çevre dostu hale getirme misyonuyla şekillenmektedir.
+        Firmanın
+        gelecekteki hedefleri arasında, mevcut projelerin yanı sıra enerji verimliliğini artıracak yeni
+        teknolojilere yatırım
+        yapmak, akıllı enerji sistemleri geliştirmek ve yenilikçi çözümlerle sektörde öncü konumda yer almak
+        bulunmaktadır.
+        Karataş Energy, profesyonel kadrosu ve yenilikçi vizyonu ile enerji sektöründeki dönüşüme liderlik etmeye
+        devam ederken,
+        müşteri memnuniyeti ve kalite odaklı yaklaşımıyla başarılı projelere imza atmayı sürdürmektedir.
+
+    </p>
+    <br>
+    <video src="https://youtu.be/_9bw_VtMUGA?si=R__A2gUgymldatz8" width=400 controls autoplay muted loop></video>
+    <!--<audio src="./mp3 ler/müzik.mp3" controls></audio> -->
+    <!--eğer sayfa yenilenince hep oynasın istersen autoplay komutu ekle ve sesi kapatmak için muted ekle-->
+    <br>
 
 
 
-
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.6;
-        background-color: #f4f4f4;
-        color: #333;
-        padding: 20px;
-    }
-
-    header {
-        background-color: #333;
-        color: #fff;
-        padding: 20px 0;
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 2em;
-
-    }
-
-    .container {
-        max-width: 800px;
-        margin: auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-    }
-
-    .profile-img {
-        display: block;
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    .intro {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .intro h2 {
-        margin-bottom: 10px;
-    }
-
-    .intro p {
-        margin-bottom: 15px;
-    }
-
-    footer {
-        text-align: center;
-        margin-top: 20px;
-        padding: 10px 0;
-        background-color: #333;
-        color: #fff;
-    }
-
-
-    @media (max-width: 600px) {
-        header {
-            font-size: 1em;
-        }
-
-        .container {
-            padding: 15px;
-        }
-
-        .socila_media {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .social_medias {
-            display: flex;
-            align-items: center;
-            margin-top: 8px;
-        }
-    }
-</style>
-
-<body>
-    <header>Kişisel Web Siteme Hoşgeldiniz</header>
-    <div class="container">
-        <img src="https://media.licdn.com/dms/image/v2/D4D03AQEIwMcJlQDMnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1713957178298?e=2147483647&v=beta&t=MVrLZFNR6DkCrJ12ZlhmbWDWFcnKVcBTMVNp9kIkleA"
-            alt="Profil  Fotosu" class="profile-img">
-        <div class="intro">
-            <h2>Benim Adım Fasih Can Karataş</h2>
-            <p>
-                Selam Ben Fasih Can Karataş, kendimle ilgili bilgiler içeren ve yaptığım,yapacağım çalışmaları içeren
-                ufak çaplı bir web sitesi oluşturmaya çalışıyorum umarım beğenirsiniz:D
-            </p>
-            <p>
-                İlgi Alanlarım : GES sistemleri,Robotik,Phyton c++ c#,Gömülü Sistemler,Elektrik Dağıtım
-            </p>
-            <p>
-                Şuan geliştirme aşamasındadır!
-            </p>
-        </div>
-    </div>
-    <div class="socila_media">
-        <div class="social_medias">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
-                alt="">
-            <p>Fasih Can Karataş</p>
-        </div>
-        <div class="social_medias">
-            <img src="https://store-images.s-microsoft.com/image/apps.46485.9007199266245564.44dc7699-748d-4c34-ba5e-d04eb48f7960.df3dbdf7-e6b9-4d2a-a5ad-3b91e430d172"
-                alt="">
-            <p>Fasih Can Karataş</p>
-        </div>
-        <div class="social_medias">
-            <img src="https://avatars1.githubusercontent.com/u/9919?v=4" alt="">
-            <p>Fasih Can Karataş</p>
-        </div>
-        <div class="social_medias">
-            <img src="https://store-images.s-microsoft.com/image/apps.37935.9007199266245907.b029bd80-381a-4869-854f-bac6f359c5c9.91f8693c-c75b-4050-a796-63e1314d18c9?h=210"
-                alt="">
-            <p>Fasih Can Karataş</p>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2025 Fasih Can Karataş. Tüm hakları Saklıdır</p>
-    </footer>
 
 </body>
 

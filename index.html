@@ -1,371 +1,1130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfa karakter seti: Türkçe ve diğer özel karakterlerin doğru görüntülenmesi için UTF-8 kullanılır -->
+    <meta charset="utf-8">
+
+    <!-- Sayfanın mobil cihazlarda düzgün görünmesi için genişlik ve ölçek ayarları -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Tarayıcı sekmesinde gözükecek sayfa başlığı -->
     <title>Fasih Can Karataş</title>
-    <style>
-        #can {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin: 15px auto;
-            float: left;
-            display: block;
-            letter-spacing: 3px;
-        }
 
+    <!-- Sayfanın içeriğini kısa açıklayan meta etiketi (SEO için kullanılır, boş bırakılmış) -->
+    <meta content="" name="Elektrik Elektronik Mühendisi">
 
-        #dumlupınar {
-            position: relative;
-            padding: 20px;
-            letter-spacing: 2px;
-            margin: 20px 0;
-        }
+    <!-- Sayfa ile ilgili anahtar kelimeler (SEO için kullanılır, boş bırakılmış) -->
+    <meta content="" name="keywords">
 
-        #dumlupınar::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE2q0cCNQh2rhcCh_g_XCzVEB0PpiK4skowg&s);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 150px;
-            opacity: 0.5;
-            /* Burada şeffaflığı ayarlayabilirsin */
-            z-index: -1;
-        }
+    <!--
+    Favicons (küçük simgeler)
+    - Tarayıcı sekmesinde veya yer imlerinde gözüken küçük simge dosyalarının yolu
+  -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+    <!--
+    Google Fonts ile ön bağlantı (preconnect)
+    - Bu, sayfa yüklenirken fontların daha hızlı getirilmesini sağlar
+  -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
 
+    <!--
+    Google Fonts'dan Roboto, Poppins ve Raleway fontlarını sayfaya ekler
+    - 'family' parametresi ile farklı font ağırlıkları ve stiller seçilmiş
+    - 'display=swap' ile font yüklendiğinde görünür hale gelir, öncesinde sistem fontu kullanılır
+  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
+    <!--
+    Vendor CSS Dosyaları
+    - Bootstrap'in ana CSS dosyası, sayfa düzeni ve responsive (mobil uyumlu) yapısı için
+  -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!--
+    Bootstrap ikonları için CSS dosyası
+    - Sayfada ikon kullanmak için gerekli stiller
+  -->
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-        #enerji {
-            position: relative;
-            padding: 20px;
-            letter-spacing: 2px;
-            margin: 20px 0;
-        }
+    <!--
+    AOS (Animate On Scroll) kütüphanesi için CSS
+    - Sayfa kaydırıldığında animasyon efektleri sağlar
+  -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-        #enerji::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url(https://media.istockphoto.com/id/918364448/tr/vekt%C3%B6r/g%C3%BCne%C5%9F-paneli-ye%C5%9Fil-enerji-simgesi.jpg?s=170667a&w=0&k=20&c=8351i4iiVTnnMdOLMaR59Q-zt_LTITBqXYTeBhwGoZ4=);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 150px;
-            opacity: 0.5;
-            /* Burada şeffaflığı ayarlayabilirsin */
-            z-index: -1;
-        }
+    <!--
+    GLightbox kütüphanesi için CSS
+    - Görsellerin veya içeriklerin açılır pencerede (lightbox) gösterilmesi için
+  -->
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-        /* Navbar düzeni */
-        .navbar {
-            width: 100%;
-            background-color: black;
-            padding: 10px 0;
-            text-align: center;
-        }
+    <!--
+    Swiper kütüphanesi için CSS
+    - Slider/carousel (kaydırıcı) yapıları için stil dosyası
+  -->
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-        .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+    <!--
+    Ana CSS dosyası
+    - Şablona özel tüm genel stillerin bulunduğu dosya
+  -->
+    <link href="assets/css/main.css" rel="stylesheet">
 
-        .navbar li {
-            display: inline-block;
-            margin: 0 100px;
-            /* Burada iki menü arasını açtım */
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
+    <!--
+    Şablon ile ilgili bilgiler (yorum satırı içinde)
+    * Şablon adı, kaynağı, güncelleme tarihi, yazarı ve lisans bilgisi burada yer alır.
+  -->
+    <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<body style="background-color: rgb(255, 255, 255);">
-    <div class="navbar">
-        <ul type="none">
-            <li><a href="#">Anasayfa</a>
-                <hr>
-            </li>
-            <li><a href="#">Hakkında</a>
-                <hr>
-            </li>
-            <li><a href="#">Yazılım</a>
-                <hr>
-            </li>
-            <li><a href="#">İletişim</a>
-                <hr>
-            </li>
-        </ul>
-    </div>
-    <h1 style="font-size: 36px;"> Fasih Can KARATAŞ</h1>
-    <img id="can"
-        src="https://media.licdn.com/dms/image/v2/D4D03AQEIwMcJlQDMnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1713957178298?e=2147483647&v=beta&t=MVrLZFNR6DkCrJ12ZlhmbWDWFcnKVcBTMVNp9kIkleA"
-        width="150px" alt="Görüntü Yüklenemedi!!">
-    <h2>Fasih Can Karataş Kimdir?</h2>
-    <br>
-    <a id="insta" href="https://www.instagram.com/karatas_fasih/" target="_blank" title="İnstagram Adresine Gider"> <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAABWVBMVEVyHVFHcEx0Fvp8Fv1yFP1/FfyLCOyfBOmtAeS7AuDHAd3UANjZAs7rD6xyFvzjANTqAMHoA7l2F/yPFfx8GPmfD/zFF/XVWujoZuLyZt3pRt/yGdHyA8j1AKTViPj/9Pr////8g9f9A7r3DZz5vO794Pf+ruj9B6uzFPv7JLv+AJr+BI/+YMP/1vD+AIThG+n9GZn/vd3/YZz+AXP+GoT/r8r+AmT/b5z+HHH+I3f+G2P/ur7+FFD+Klb+fYv/wcr+LUf+LWX+AFn+Nzr+Ohz+RT7+inP+Si7/ztD+TxL/zbv+Wy//9fH+WgL+c1X+ZyX+PUv+Bzv+VXD+cxr/6eL+aQT+eAX+nDj+gwD+gxH+fSL+rYn+jwD+iwL+XhX/3rn/1bH9ZR/+lwP+nwH+xHH8ZC3+qAH+sAD+wAP+x1P+zGb+pl79mQn+uAD9J3T+ygD9O1n8pRL9twuaEkMNAAAAc3RSTlMBAF3G///////////GW9j//9nY/1r///////////7//////8b/////////////////////////////////////////////////////////////////////////////////xf///1v////////Y/9j/2VzGSus+GgAAAeNJREFUeAFFjEWiU0EQRc/tqu74V9wZ4TBiB6wG3wpzVoQ7zHCXeELypHH+KVchJAESaEs0IUv0Zv+7fwLgSAOk9ZFghcnfDw4AAg18cyhWCKNVob9NCZjQLWVrEGhJbJGDoCBpMwCrJTETAKBWgdeRGb4dmJW56PdI/KU1K4X15N+AFsW0+3/WVm7Pa0Pmu4Fh7HcbRIjMIhr3FItUGAH4SNZKjK32YjKpK3Iv0yUY0b8g0Vs0oK+8wbeyMBAQwVeo44R1z7XWq6rqpn5jiTmAeQO3iceg9zkYzKvc71iEmMFbqCJJ4tDcKFrLjX5D/MEdq8GpIUUgd/tgGboTgiUDPDZ44SXNpr0gWRcAgqEmEPJRNVPOxYaOth0oAHdCxWoOzslH+RCvlafYMgFUHvAIHoCjz16io80BrH/j0AAcJ9KWKkhn5sRyGjsDtr/sqyrsWNO1cW9/cDNLZgHLSzVvn+wMq9qbKKwy7TiIaKTW56pzW6Oa+N1OKEQdvvl2RyOE4DEOZurd1cHNeab27tyjOPfhFlucXP04ovF97B6jTOzdJwFLaNAff7N6c8incH1VpiSR67q2VgjzUU7JgbMTiQtFKmgAsCAuczlflmVZn7iGBFc1awB/p4tqUS3LDb8OPwBrSrZIO/KHZwAAAABJRU5ErkJggg=="
-            alt="hatalı giriş yapılıyor"></a>
-    <a id="linkedin" href="https://www.linkedin.com/in/fckaratas-271250260/" target="_blank"
-        title="Linkedin hesabına gider"> <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII="
-            alt="hatalı giriş yapılıyor" width="33"></a>
-    <a id="mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=fckaratas47@gmail.com" target="_blank"
-        title="Mail">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Mail" width="32">
-    </a>
+<body class="index-page"><!-- Sayfa gövdesi, 'index-page' sınıfı sayfa stilini belirler -->
 
-    <p id="fasih" style="font-family: 'Georgia', serif;">
-        Fasih Can Karataş, 2000 yılında Mardin Merkez'de dünyaya gelmiştir. Küçük yaşlardan itibaren mühendisliğe
-        ilgi
-        duymuş ve bu alanda kendini geliştirmeyi hedeflemiştir. Mühendislik dizileri, filmleri ve önemli isimleri
-        yakından takip etmiş, lise yıllarında dahi öğretmenlerinin "Ne olacaksın?" sorusuna kararlılıkla "Mühendis!"
-        yanıtını vermiştir.
-        Lise eğitimini Mardin Mehmet Edip Fama Yüksel Anadolu Lisesi'nde tamamladıktan sonra, Kütahya Dumlupınar
-        Üniversitesi Elektrik Elektronik Mühendisliği bölümünü kazanarak mühendislik eğitimine başlamıştır.
-        Üniversite
-        süresince elektrik iç tesisat dizaynı, tasarım, onarım ve yapım aşamalarında deneyim kazanmış; AutoCAD gibi
-        programlarla çizim yapmayı ve EMO şartnamelerine uygun proje tasarımları oluşturmayı öğrenmiştir.
-        Profesyonel kariyerine tesis işletme ve bakım-onarım alanlarında çalışarak devam eden Karataş, yeni
-        tamamlanan
-        projelerde kabul verme ve detaylı incelemeler yaparak elektrik sistemleri konusunda derin bir bilgi birikimi
-        edinmiştir. Özellikle bina, tesis ve şirketlerin kurulumu sırasında dikkat edilmesi gereken elektriksel
-        unsurlar
-        konusunda uzmanlaşmıştır.
-        19 yaşında güneş enerji panelleriyle tanışmış ve çatı üstü GES projelerinde aktif rol almıştır. PV*SOL gibi
-        yazılımlar kullanarak tasarım yapmış, AutoCAD ile projelendirme süreçlerine katkıda bulunmuş, fiyat
-        teklifleri
-        hazırlamış ve iç pazardaki tedarikçilerle iş anlaşmaları gerçekleştirmiştir. Daha sonra direk değişimi,
-        mahalle
-        dağıtım direkleri ve trafoların yenilenmesi gibi projelerde görev alarak saha deneyimini artırmıştır.
-        Elektronik dünyasına adım attıktan sonra, GES sahalarında trafo kurulumu ve ihtiyaç hesaplamaları
-        konularında
-        yetkinlik kazanmıştır. Aynı dönemde Texas Instruments (TI) ile inverter sistemleri üzerine çalışmalar
-        yaparak bu
-        alanda uzmanlaşmaya karar vermiştir. Multisim, PSpice, MATLAB, Proteus ve EasyEDA gibi PCB tasarım
-        yazılımlarını
-        kullanarak kendi sıcaklık ve basınç sensörlerini, jiroskop sensörünü ve GPS sensörünü tasarlamıştır.
-        Roket teknolojilerine olan ilgisi sayesinde bir roket takımında Aviyonik Birim Sorumlusu olarak görev almış
-        ve
-        burada ana uçuş kontrol kartı, yer istasyonu kontrol kartı ve payload ana kartı tasarımlarını yaparak orta
-        irtifa roket yarışmalarına katılım sağlamıştır.
-        Lisans bitirme projesi kapsamında kendi CNC makinesini tasarlamış ve üretmiş, böylece kişisel PCB üretim
-        süreçlerini de yönetebilir hale gelmiştir. Park sensörleri, harekete duyarlı robotlar ve Otto robot
-        projeleri
-        tamamlamış; Otto robotu geliştirerek hareket halinde çalışabilen bir hava savunma robotuna dönüştürmüştür.
-        Bu
-        robot sistemine radar ve küçük plastik mermi atabilen bir mekanizma entegre etmiştir.
-        Son olarak, kendi DIY uçağını tasarlayıp uçurmayı başarmıştır. Günümüzde 5MW ve 9MW kapasiteli güneş enerji
-        santrallerinin kurulum ve kabul süreçlerinde aktif olarak görev almaktadır.
-    </p>
+    <header id="header" class="header dark-background d-flex flex-column"><!-- Üst kısım, sabit menü ve profil alanı -->
+        <i class="header-toggle d-xl-none bi bi-list"></i><!-- Mobilde açılır menü ikonu -->
 
-    <br>
+        <div class="profile-img"><!-- Profil resmi alanı -->
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQEIwMcJlQDMnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1713957178298?e=2147483647&v=beta&t=MVrLZFNR6DkCrJ12ZlhmbWDWFcnKVcBTMVNp9kIkleA"
+                alt="" class="img-fluid rounded-circle"><!-- Profil resmi, yuvarlak ve responsive -->
+        </div>
 
-    <hr>
-    <h2>Dumlupınar Üniversitesi</h2>
-    <p id="dumlupınar">Kütahya Dumlupınar Üniversitesi Elektrik-Elektronik Mühendisliği Bölümü, 1992 yılında kurulmuş
-        olup,
-        Türkiye’nin önde
-        gelen mühendislik fakültelerinden biri olarak eğitim ve araştırma faaliyetlerini sürdürmektedir. Bölüm,
-        öğrencilere
-        temel mühendislik bilgileri ile birlikte elektrik-elektronik sistemlerinin tasarımı, analizi ve uygulanması
-        konusunda
-        kapsamlı bir eğitim sunmaktadır. Eğitim programında devre teorisi, elektromanyetik alanlar, sinyaller ve
-        sistemler,
-        mikrodenetleyiciler, güç sistemleri, haberleşme sistemleri, kontrol sistemleri gibi temel dersler
-        bulunmaktadır. Bunun
-        yanı sıra, bilgisayar destekli tasarım, yapay zeka uygulamaları, gömülü sistemler, yenilenebilir enerji
-        kaynakları ve
-        ileri seviye güç elektroniği gibi modern teknolojilere yönelik dersler de müfredatta yer almaktadır.
-        Üniversitenin
-        laboratuvar olanakları, öğrencilerin teorik bilgilerini pratik çalışmalarla pekiştirmelerine olanak
-        tanımakta ve
-        özellikle güç elektroniği, mikroişlemciler, haberleşme sistemleri, yenilenebilir enerji laboratuvarları
-        öğrencilere
-        uygulamalı eğitim sunmaktadır. Kütahya, sanayi ve teknoloji alanında gelişmekte olan bir şehir olup, bu
-        durum
-        üniversitenin çeşitli sanayi kuruluşlarıyla iş birlikleri geliştirmesine olanak tanımaktadır. Dumlupınar
-        Üniversitesi,
-        TÜBİTAK projeleri, sanayi destekli araştırmalar ve uluslararası iş birlikleriyle akademik çalışmalarını
-        güçlendirmektedir. Elektrik-elektronik mühendisliği bölümü, özellikle yenilenebilir enerji sistemleri ve güç
-        elektroniği
-        alanlarında yaptığı araştırmalarla dikkat çekmektedir. Bölüm, ayrıca çeşitli öğrenci toplulukları ve
-        projelerle
-        öğrencilerini desteklemekte, onları akademik ve profesyonel hayata daha iyi hazırlamaktadır. Mezunları,
-        enerji sektörü,
-        haberleşme, otomasyon, savunma sanayi, elektronik üretim ve yazılım alanlarında geniş bir yelpazede iş
-        imkanlarına sahip
-        olmaktadır. Birçok mezunu Türkiye'nin büyük şirketlerinde, ASELSAN, ROKETSAN, HAVELSAN, TUSAŞ gibi savunma
-        sanayii
-        kuruluşlarında, enerji firmalarında ve uluslararası teknoloji şirketlerinde önemli pozisyonlarda görev
-        almaktadır.
-        Ayrıca, bazı mezunlar akademik kariyerlerine devam ederek, çeşitli üniversitelerde öğretim üyesi olarak
-        çalışmakta ve
-        bilimsel araştırmalara katkı sağlamaktadır. Özellikle güç elektroniği, haberleşme ve kontrol sistemleri
-        alanlarında
-        yaptığı akademik çalışmalarla dikkat çeken bölüm, Türkiye’nin teknoloji ve sanayi alanındaki gelişimine
-        önemli katkılar
-        sunmaktadır. Üniversitenin bilimsel araştırmalara verdiği önem, öğrencilerin yüksek lisans ve doktora
-        eğitimine
-        yönelmeleri için teşvik edici bir ortam sağlamaktadır. Elektrik-elektronik mühendisliği bölümü, AR-GE
-        faaliyetleri ile
-        birlikte sanayi ile iş birliği içinde projeler üreterek ülkenin teknolojik gelişimine doğrudan katkı
-        sağlamaktadır.
-        Özellikle elektrikli araçlar, akıllı şebekeler, yapay zeka destekli elektronik sistemler gibi konular
-        üzerinde yürütülen
-        projeler, öğrencilerin sektöre daha donanımlı bir şekilde katılmasına yardımcı olmaktadır. Bölüm,
-        uluslararası
-        akreditasyon standartlarına uygun eğitim anlayışıyla mezunlarının küresel iş piyasasında da rekabetçi
-        olmasını
-        sağlamaktadır. Kütahya Dumlupınar Üniversitesi, Erasmus ve Mevlana gibi uluslararası değişim programları
-        sayesinde
-        öğrencilerine yurtdışında eğitim alma ve farklı ülkelerde mühendislik deneyimi kazanma fırsatı sunmaktadır.
-        Böylece
-        mezunlar, sadece Türkiye'de değil, dünya çapında birçok ülkede mühendis olarak çalışma imkanına sahip
-        olmaktadır.
-        Mezunlarının bir kısmı, özellikle Avrupa ve Amerika'daki teknoloji firmalarında yazılım mühendisi, sistem
-        mühendisi veya
-        proje yöneticisi olarak kariyerlerine devam etmektedir. Akademik kadrosu güçlü olan bölüm, öğrencilerine
-        teorik
-        bilgilerin yanı sıra sektörel deneyim kazandırmayı hedeflemekte ve bu doğrultuda sektör profesyonellerini
-        seminer ve
-        etkinliklere davet etmektedir. Ayrıca, mühendislik öğrencilerinin sektörde daha rekabetçi hale gelmesi için
-        girişimcilik, proje yönetimi ve yenilikçi teknolojiler gibi alanlarda çeşitli seminerler ve eğitimler
-        düzenlenmektedir.
-        Bölüm, her yıl düzenlediği bitirme projeleri sergisi ile öğrencilerin inovatif fikirlerini ve mühendislik
-        çözümlerini
-        sunmalarına olanak tanımaktadır. Mezuniyet sonrası istihdam oranları oldukça yüksek olan bölüm, özellikle
-        savunma
-        sanayii, enerji ve otomasyon sektörlerinde büyük firmalarla olan iş birlikleri sayesinde öğrencilerine geniş
-        kariyer
-        imkanları sunmaktadır. Sonuç olarak, Kütahya Dumlupınar Üniversitesi Elektrik-Elektronik Mühendisliği
-        Bölümü,
-        öğrencilerine hem akademik hem de uygulamalı eğitim olanakları sunarak, onları sektörün ihtiyaç duyduğu
-        nitelikli
-        mühendisler olarak yetiştirmeyi amaçlamakta ve ülkenin bilimsel ve teknolojik gelişimine katkıda
-        bulunmaktadır.
+        <a href="index.html"
+            class="logo d-flex align-items-center justify-content-center"><!-- Logo ve isim, ortalanmış -->
+            <!-- Eğer resim logo kullanmak istersen, aşağıdaki satırdaki yorum kaldırılabilir -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">Fasih Can Karataş</h1><!-- Site sahibi ismi -->
+        </a>
 
-    </p>
-    <hr>
-    <h3>KARATAŞ ENERGY</h3>
-    <p id="enerji">Karataş Energy, Ahmet Karataş ve Fasih Can Karataş tarafından baba-oğul temeliyle 17 Eylül 2023
-        tarihinde kurulmuş olup,
-        kısa sürede yenilenebilir enerji sektöründe önemli projelere imza atarak sektörde kendine sağlam bir yer
-        edinmiştir.
-        Şirket, özellikle güneş enerjisi alanında yoğunlaşarak birçok başarılı projeyi hayata geçirmiş ve
-        sürdürülebilir enerji
-        kaynaklarının kullanımını teşvik etmiştir. Bununla birlikte, elektrik iletim, dağıtım ve üretim tesislerinde
-        de geniş
-        çaplı hizmetler sunarak enerji sektörünün farklı alanlarında faaliyet göstermektedir. Şirketin
-        gerçekleştirdiği projeler
-        arasında 5MW kapasiteli Malatya Arapgir GES sahasının kurulumu ve işletmesi önemli bir yer tutarken,
-        Batmanda ise biri
-        7MW diğeri 9MW olmak üzere iki farklı GES sahasının kurulumunu ve denetimini başarıyla tamamlamıştır. Bu
-        projelerde
-        yalnızca sahaların inşasıyla kalmamış, aynı zamanda ana dağıtım şebekelerine bağlantılarının sağlanması
-        sürecinde de
-        aktif rol alarak teknik uzmanlığını kanıtlamıştır. Karataş Energy, büyük ölçekli yenilenebilir enerji
-        projelerinin yanı
-        sıra çeşitli firmaların tesis işletme, bakım ve koruma hizmetlerini de üstlenerek enerji sektöründe kapsamlı
-        çözümler
-        sunmaktadır. Güçlü ve dinamik ekibiyle, elektrik ve enerji alanındaki tüm projelerde profesyonel bir
-        anlayışla hareket
-        eden firma, kalite ve müşteri memnuniyeti odaklı çalışmalarıyla sektörde güvenilir bir isim haline
-        gelmiştir. Güneş
-        enerjisi alanındaki bilgi birikimini, sürekli gelişen teknolojilere uyum sağlayarak daha da ileriye taşımayı
-        hedefleyen
-        Karataş Energy, geleceğin enerji sistemlerine katkıda bulunmak adına yeni projeler üzerinde çalışmaya devam
-        etmektedir.
-        Sahip olduğu mühendislik ve proje yönetimi yetkinlikleri sayesinde, sadece Türkiye’de değil, ilerleyen
-        dönemde
-        uluslararası arenada da projeler geliştirmeyi planlayan firma, enerji sektöründeki değişen dinamikleri
-        yakından takip
-        ederek en verimli ve yenilikçi çözümleri sunma hedefiyle ilerlemektedir. Güneş enerjisi sahalarının kurulum
-        sürecinde en
-        verimli lokasyonların seçimi, panellerin optimal açılarla yerleştirilmesi, invertör sistemlerinin
-        entegrasyonu ve
-        şebekeye bağlantı aşamaları gibi teknik detaylarda yüksek mühendislik standartlarına bağlı kalan Karataş
-        Energy, bu
-        alandaki uzmanlığını her yeni projede daha da ileriye taşımaktadır. Enerji sektöründe sadece sahaların
-        kurulumu ile
-        değil, aynı zamanda bakım ve denetim süreçlerinde de etkin bir rol oynayarak uzun vadeli çözümler üretmekte
-        ve sahaların
-        maksimum verimlilikle çalışmasını sağlamaktadır. Şirketin bugüne kadar gerçekleştirdiği projeler, güneş
-        enerjisinin
-        Türkiye’deki yaygınlaşmasına katkı sağlamış ve bu alandaki yatırımları teşvik eden bir örnek teşkil
-        etmiştir. Bununla
-        birlikte, elektrik iletim ve dağıtım alanındaki projeleriyle de büyük ölçekli altyapı çalışmalarına katkı
-        sunan Karataş
-        Energy, enerji ağlarının daha güvenli ve verimli çalışmasını sağlamak için çeşitli modernizasyon ve
-        geliştirme
-        projelerinde yer almıştır. Şirket, yalnızca büyük ölçekli projelerle değil, aynı zamanda bireysel ve
-        kurumsal
-        müşterilere yönelik özelleştirilmiş enerji çözümleri ile de hizmet sunarak geniş bir müşteri kitlesine hitap
-        etmektedir.
-        Bu doğrultuda, güneş panelleri ve enerji depolama sistemleri gibi çözümlerle müşterilerine sürdürülebilir
-        enerji
-        kullanımı konusunda rehberlik etmektedir. Karataş Energy’nin sunduğu hizmetler, yenilenebilir enerji
-        kaynaklarının
-        kullanımını yaygınlaştırma ve enerji sektörünü daha çevre dostu hale getirme misyonuyla şekillenmektedir.
-        Firmanın
-        gelecekteki hedefleri arasında, mevcut projelerin yanı sıra enerji verimliliğini artıracak yeni
-        teknolojilere yatırım
-        yapmak, akıllı enerji sistemleri geliştirmek ve yenilikçi çözümlerle sektörde öncü konumda yer almak
-        bulunmaktadır.
-        Karataş Energy, profesyonel kadrosu ve yenilikçi vizyonu ile enerji sektöründeki dönüşüme liderlik etmeye
-        devam ederken,
-        müşteri memnuniyeti ve kalite odaklı yaklaşımıyla başarılı projelere imza atmayı sürdürmektedir.
+        <div class="social-links text-center"><!-- Sosyal medya ikonlarının bulunduğu alan -->
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a><!-- Twitter ikonu ve linki -->
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a><!-- Facebook ikonu ve linki -->
+            <a href="https://www.instagram.com/karatas_fasih/" class="instagram"><i
+                    class="bi bi-instagram"></i></a><!-- Instagram ikonu ve linki -->
+            <a href="#" class="google-plus"><i
+                    class="bi bi-skype"></i></a><!-- Skype (Google Plus yerine kullanılmış) ikonu ve linki -->
+            <a href="https://www.linkedin.com/in/fckaratas/" class="linkedin"><i
+                    class="bi bi-linkedin"></i></a><!-- Linkedin ikonu ve linki -->
+        </div>
 
-    </p>
-    <br>
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=woAwg5KnixA" title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
-    <br>
+        <nav id="navmenu" class="navmenu"><!-- Navigasyon menüsü -->
+            <ul><!-- Menü liste elemanları -->
+                <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Ana Sayfa</a></li>
+                <!-- Ana sayfa bağlantısı ve aktif sınıfı -->
+                <li><a href="#about"><i class="bi bi-person navicon"></i> Hakkında</a></li>
+                <!-- Hakkında bölümü bağlantısı -->
+                <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Özet</a></li>
+                <!-- Özgeçmiş bağlantısı -->
+                <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Proje ve Sertifikalar</a></li>
+                <!-- Portföy bağlantısı -->
+                <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Hizmetler</a></li>
+                <!-- Hizmetler bağlantısı -->
+                <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i
+                            class="bi bi-chevron-down toggle-dropdown"></i></a><!-- Açılır menü başlığı -->
+                    <ul><!-- Açılır menü alt liste -->
+                        <li><a href="#">Dropdown 1</a></li><!-- Alt menü 1 -->
+                        <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                                    class="bi bi-chevron-down toggle-dropdown"></i></a><!-- Derin açılır menü -->
+                            <ul><!-- Derin açılır menü alt liste -->
+                                <li><a href="#">Deep Dropdown 1</a></li><!-- Derin menü 1 -->
+                                <li><a href="#">Deep Dropdown 2</a></li><!-- Derin menü 2 -->
+                                <li><a href="#">Deep Dropdown 3</a></li><!-- Derin menü 3 -->
+                                <li><a href="#">Deep Dropdown 4</a></li><!-- Derin menü 4 -->
+                                <li><a href="#">Deep Dropdown 5</a></li><!-- Derin menü 5 -->
+                            </ul>
+                        </li>
+                        <li><a href="#">Dropdown 2</a></li><!-- Alt menü 2 -->
+                        <li><a href="#">Dropdown 3</a></li><!-- Alt menü 3 -->
+                        <li><a href="#">Dropdown 4</a></li><!-- Alt menü 4 -->
+                    </ul>
+                </li>
+                <li><a href="#contact"><i class="bi bi-envelope navicon"></i> İletişim</a></li>
+                <!-- İletişim bölümü bağlantısı -->
+            </ul>
+        </nav>
 
-    <br>
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=EqWIrzSEnTk&list=WL&index=179"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
-    <br>
+    </header>
 
-    <br>
-    <iframe width="560" height="315"
-        src="https://www.youtube.com/results?search_query=r%C3%BCzgar%C4%B1n+kanatlar%C4%B1+2"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
-    <br>
+    <main class="main"><!-- Ana içerik alanı -->
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section dark-background"><!-- Kahraman (giriş) bölümü, koyu arka plan -->
+
+            <img src="https://temizenerji.org/wp-content/uploads/2023/05/didem-gorseller-2023-05-07T163154.056.png"
+                alt="" data-aos="fade-in" class=""><!-- Arka plan resmi, fade-in animasyonlu -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <!-- İçerik kapsayıcı, fade-up animasyonlu, 100ms gecikmeli -->
+                <h2>Fasih Can Karataş</h2><!-- Başlık -->
+                <p>I'm <span class="typed" data-typed-items="Engineer, Programmer, Freelancer">Designer</span><span
+                        class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span
+                        class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+                <!-- Yazı tipinde sırasıyla değişen meslekler ve imleç animasyonu -->
+            </div>
+
+        </section><!-- /Hero Section -->
+
+        <!-- About Section -->
+        <section id="Hakkında" class="about section"><!-- Hakkında bölümü -->
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <!-- Başlık ve açıklama kapsayıcısı, fade-up animasyonlu -->
+                <h2>Hakkında</h2><!-- Hakkında başlığı -->
+                <p>Selam ben Fasih Can Karataş. 2000 yılında Mardin’de doğdum. Küçük yaşlardan beri teknolojiye,
+                    özellikle de
+                    elektronik ve
+                    mühendisliğe karşı büyük bir merakım vardı. O zamanlar izlediğim mühendislik temalı diziler,
+                    belgeseller ve YouTube
+                    videoları bana yön verdi diyebilirim.
+
+                    Liseyi Mardin Mehmet Edip Fama Yüksel Anadolu Lisesi’nde bitirdikten sonra, Kütahya Dumlupınar
+                    Üniversitesi
+                    Elektrik-Elektronik Mühendisliği bölümünde üniversite hayatıma başladım. Okul sürecim sadece
+                    derslerle sınırlı kalmadı;
+                    her fırsatta sahada çalıştım, iç tesisat işleri yaptım, çizim programlarını öğrendim ve birçok
+                    gerçek projede yer aldım.
+                    AutoCAD kullanarak projeler çizdim, EMO standartlarına göre işler yaptım.
+
+                    Üniversitedeyken güneş enerji sistemlerine ilgi duymaya başladım. PV*SOL ile GES projeleri
+                    tasarladım, tedarikçilerle
+                    iletişim kurarak fiyat teklifleri hazırladım ve projelerin kurulum aşamalarında yer aldım. Sahada
+                    olmak, yerinde görmek
+                    ve çözüm üretmek bana çok şey kattı.
+
+                    Elektroniğe olan ilgim beni devre tasarımlarına yöneltti. Proteus, EasyEDA, Multisim gibi
+                    yazılımları kullanarak kendi
+                    sensörlerimi tasarladım. Kendi CNC makinemi yaparak artık PCB üretimini bile kendi başıma yapabilir
+                    hale geldim.
+
+                    Roket teknolojilerine olan ilgim sayesinde bir roket takımında Aviyonik Birim Sorumlusu olarak yer
+                    aldım. Burada uçuş
+                    kontrol kartları ve payload sistemleri tasarlayarak roket yarışmalarına katıldım. Hatta Otto robotu
+                    geliştirip onu küçük
+                    bir savunma sistemine dönüştürdüm — hareket halinde radar destekli bir mekanizma kurdum ve küçük
+                    mermi atabilen bir
+                    sistem ekledim.
+
+                    Bugün hâlâ aktif olarak enerji santrallerinin kurulumunda, trafoların yenilenmesinde, inverter
+                    sistemlerinin
+                    uygulanmasında görev alıyorum. Sahada olmak, üretmek, yeni şeyler öğrenmek ve öğretmek bana iyi
+                    geliyor. Mühendisliği
+                    sadece bir meslek değil, hayat tarzı olarak görüyorum. Elimden geldiğince hem teknik bilgi hem de
+                    gerçek deneyimle
+                    kendimi geliştirmeye çalışıyorum.</p><!-- Hakkında açıklama metni -->
+            </div><!-- End Section Title -->
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- Kullanıcının profil resmi ve hakkındaki kısa bilgiler bölümü -->
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQEIwMcJlQDMnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1713957178298?e=2147483647&v=beta&t=MVrLZFNR6DkCrJ12ZlhmbWDWFcnKVcBTMVNp9kIkleA"
+                            class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-8 content">
+                        <h2>Elektrik-Elektronik Mühendisi &amp; Web Geliştiricisi.</h2>
+                        <p class="fst-italic py-3">
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul>
+                                    <!-- Kullanıcı doğum tarihi, web sitesi, telefon ve şehir bilgileri -->
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Doğum Günü:</strong> <span>29 Temmuz
+                                            2000</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
+                                        <span>https://fasihcankaratas.github.io/info/</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Telefon:</strong> <span>+90 505 029
+                                            86 48
+                                        </span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Şehir:</strong> <span>Mersin,
+                                            Türkiye</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul>
+                                    <!-- Kullanıcı yaşı, eğitim durumu, e-posta ve serbest çalışma durumu -->
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Yaş:</strong> <span>25</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Derece:</strong> <span>Lisans</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                                        <span>fckaratas47@gmail.com</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Çalışmaya:</strong>
+                                        <span>Uygun</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="py-3">
+                            Azimli, çalışkan ve istikrarlı biriyim. Yeni şeyler öğrenmeyi, kendimi geliştirmeyi ve
+                            üreterek ilerlemeyi severim.
+                            Teknolojiye ve mühendisliğe duyduğum ilgi, beni sürekli araştırmaya yönlendiriyor. Takım
+                            çalışmasına uyum sağlayabilen
+                            ama bireysel sorumluluklarını da bilen bir karaktere sahibim. Hedeflerim doğrultusunda
+                            kararlılıkla ilerlerim.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /About Section -->
+
+        <!-- İstatistikler Bölümü -->
+        <section id="stats" class="stats section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <!-- Mutlu müşteri sayısı -->
+                            <i class="bi bi-emoji-smile"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="36" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Mutlu Müşteriler</strong> <span>Önce.Mutluluk!</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <!-- Tamamlanmış projeler -->
+                            <i class="bi bi-journal-richtext"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="36" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Bitirilmiş Projeler</strong> <span></span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <!-- Destek sağlanan saatler -->
+                            <i class="bi bi-headset"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="+1000" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Harcanan Vakit</strong> <span></span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <!-- Çalışkan ekip üyeleri -->
+                            <i class="bi bi-people"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="17" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Çalışılan Ekip Arkadaşları</strong> <span>Birlikten Kuvvet Doğar!</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Stats Section -->
+        <!-- Yetenekler Bölümü -->
+        <section id="skills" class="skills section light-background">
+
+            <!-- Bölüm Başlığı -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Yetenekler</h2>
+                <p></p>
+            </div><!-- Başlık Sonu -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- Yeteneklerin listelendiği ana satır -->
+                <div class="row skills-content skills-animation">
+
+                    <div class="col-lg-6">
+
+                        <!-- Her bir yetenek için ilerleme çubuğu -->
+                        <div class="progress">
+                            <!-- Yetenek adı ve yüzdesi -->
+                            <span class="skill"><span>HTML</span> <i class="val">85%</i></span>
+                            <!-- İlerleme çubuğunu saran dış alan -->
+                            <div class="progress-bar-wrap">
+                                <!-- İlerleme çubuğu, erişilebilirlik için role ve aria değerleri içeriyor -->
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>AutoCAD</span> <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>İngilizce</span> <i class="val">70%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>Proteus </span> <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>Altium</span> <i class="val">75%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="progress">
+                            <span class="skill"><span>Phyton</span> <i class="val">80%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>C#</span> <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>C++</span> <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <span class="skill"><span>MAtlab</span> <i class="val">80%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- Yetenek öğesi sonu -->
+
+                        <div class="progress">
+                            <!-- Photoshop beceri adı ve yüzdesi gösteriliyor -->
+                            <span class="skill"><span>PvSOL</span> <i class="val">75%</i></span>
+                            <div class="progress-bar-wrap">
+                                <!-- Yetenek seviyesini gösteren ilerleme çubuğu -->
+                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div><!-- End Skills Item -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- /Skills Section -->
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume section">
+
+            <!-- Bölüm başlığı, animasyonla yukarı doğru fade-in efekti -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Özet</h2>
+                <!-- Resume bölümü açıklama metni -->
+                <p>Bugüne kadar neler yaptım, hangi yollardan geçtim, neleri başardım diye merak ediyorsanız doğru
+                    yerdesiniz. Bu bölümde
+                    sizlere kendimi ve yaptıklarımı kısaca ama net bir şekilde anlatmaya çalışacağım. Hem kişisel hem de
+                    mesleki yolculuğuma
+                    dair bir özet niteliğinde olacak.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Özgeçmiş özet başlığı -->
+                        <h3 class="resume-title">Özet</h3>
+
+                        <div class="resume-item pb-0">
+                            <!-- İsim -->
+                            <h4>Fasih Can Karataş</h4>
+                            <!-- Kısa tanıtım paragrafı, italik yazılmış -->
+                            <p><em>Yenilikçi ve çözüm odaklı bir Elektrik-Elektronik Mühendisiyim. Güneş enerjisi
+                                    sistemlerinden PCB tasarımlarına, sahadan
+                                    yazılıma kadar birçok alanda 2+ yıllık deneyimimle projeleri fikirden son ürüne
+                                    başarıyla ulaştırdım.</em></p>
+                            <ul>
+                                <!-- İletişim bilgileri listesi -->
+                                <li>Arpaçbahşiş/Erdemli-Mersin</li>
+                                <li>+90 505 029 86 48</li>
+                                <li>fckaratas47@gmail.com</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
+                        <h3 class="resume-title">Eğitim</h3>
+                        <!-- Eğitim başlığı -->
+
+                        <div class="resume-item">
+                            <!-- Yüksek lisans derecesi ve bölümü -->
+                            <h4>Lise </h4>
+                            <!-- Eğitim dönemi -->
+                            <h5>2014 - 2018</h5>
+                            <!-- Okul adı ve yeri, italik yazılmış -->
+                            <p><em>Mehmet Edip Fatma Yüksel Anadolu Lisesi</em></p>
+                            <!-- Eğitimle ilgili açıklama paragrafı -->
+                            <p>Dumlupınar Üniversitesi Elektrik-Elektronik Mühendisliği bölümünde teorik bilgiyi
+                                sahadaki pratikle birleştirme fırsatı
+                                buldum. Bu süreç, mühendislik bakış açımı güçlendirmeme ve çok yönlü projelerde yer
+                                almama olanak sağladı.</p>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Yüksek lisans derecesi ve bölümü -->
+                            <h4>Lisans &amp; Elektrik-Elektronik Mühendisliği</h4>
+                            <!-- Eğitim dönemi -->
+                            <h5>2019 - 2025</h5>
+                            <!-- Okul adı ve yeri, italik yazılmış -->
+                            <p><em>Kütahya Dumlupınar Üniversitesi</em></p>
+                            <!-- Eğitimle ilgili açıklama paragrafı -->
+                            <p>Dumlupınar Üniversitesi Elektrik-Elektronik Mühendisliği bölümünde teorik bilgiyi
+                                sahadaki pratikle birleştirme fırsatı
+                                buldum. Bu süreç, mühendislik bakış açımı güçlendirmeme ve çok yönlü projelerde yer
+                                almama olanak sağladı.</p>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Lisans derecesi ve bölümü -->
+                            <h4>Önlisans &amp; Bilgisayar Programcılığı</h4>
+                            <!-- Eğitim dönemi -->
+                            <h5>2023 - 2025</h5>
+                            <!-- Okul adı ve yeri, italik yazılmış -->
+                            <p><em>Anadolu Üniversitesi</em></p>
+                            <!-- Eğitimle ilgili açıklama paragrafı -->
+                            <p>Anadolu Üniversitesi Bilgisayar Programcılığı bölümünde algoritma geliştirme, yazılım
+                                temelleri ve veri yapıları üzerine
+                                güçlü bir altyapı edindim. Bu süreç, yazılım dünyasına daha donanımlı ve çözüm odaklı
+                                bir şekilde yaklaşmamı sağladı.
+                            </p>
+                        </div><!-- Edn Resume Item -->
+
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Profesyonel deneyim başlığı -->
+                        <h3 class="resume-title">Deneyimlerim</h3>
+
+                        <div class="resume-item">
+                            <!-- Pozisyon adı -->
+                            <h4>Test Mühendisi Stajı</h4>
+                            <!-- Çalışma dönemi -->
+                            <h5>17.07.2023-17.09.2023</h5>
+                            <!-- İş yeri ve konumu, italik yazılmış -->
+                            <p><em>Astor A.Ş Ankara/Sincan </em></p>
+                            <ul>
+                                <!-- Pozisyondaki görev ve sorumluluklar listesi -->
+                                <li>Transformatör testleri, transformatör üretim süreçleri ve bakım
+                                    uygulamaları üzerine çalışmalarda bulundum. Elektrik iletim ve dağıtım
+                                    teknikleri ile PLC kontrol sistemler üzerine uygulamalı deneyim kazandım.</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Pozisyon adı -->
+                            <h4>Aviyonik Birim Lideri</h4>
+                            <!-- Çalışma dönemi -->
+                            <h5>01.2024 - 08.2024</h5>
+                            <!-- İş yeri ve konumu, italik yazılmış -->
+                            <p><em>Teknofest Orta İrtifa Roket Takımı</em></p>
+                            <ul>
+                                <!-- Pozisyondaki görev ve sorumluluklar listesi -->
+                                <li>Özgün uçuş kontrol blgsayarı tasarımı, iletişim yazılımı geliştirme ve
+                                    kodlama süreçlerinde görev aldım. Güç elektronği sistemleri üzerine
+                                    çalışmalar yaptım. Proteus, Fritzing ve Altium programlarını aktif olarak
+                                    kullandım</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Pozisyon adı -->
+                            <h4>Elektrik Mühendisliği</h4>
+                            <!-- Çalışma dönemi -->
+                            <h5>Halen</h5>
+                            <!-- İş yeri ve konumu, italik yazılmış -->
+                            <p><em>Karataş Enerji /Mardin </em></p>
+                            <ul>
+                                <!-- Pozisyondaki görev ve sorumluluklar listesi -->
+                                <li>Güneş enerjisi ve yenilenebilir enerji sistemlerinin tasarımı,
+                                    kontrol mühendsliği uygulamaları üzerine çalışmalar yürütmekteyim.
+                                    AutoCAD ve PVSOL yazılımlarını aktif olarak kullanmaktayım.</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Pozisyon adı -->
+                            <h4>Elektrik Mühendisliği</h4>
+                            <!-- Çalışma dönemi -->
+                            <h5>03.2024-06.2024</h5>
+                            <!-- İş yeri ve konumu, italik yazılmış -->
+                            <p><em>Arya Enerji /Mardin </em></p>
+                            <ul>
+                                <!-- Pozisyondaki görev ve sorumluluklar listesi -->
+                                <li>Güneş Enerjisi Sistemleri, Yenilenebilir Enerji Sistemleri, Kontrol
+                                    Mühendisliği, AutoCAD ve PVSOL Uygulamalarında aktf rol aldım.</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Pozisyon adı -->
+                            <h4>SMM Mühendislik Stajı</h4>
+                            <!-- Çalışma dönemi -->
+                            <h5>01.2021-08.2021</h5>
+                            <!-- İş yeri ve konumu, italik yazılmış -->
+                            <p><em>Ronka Mühendislik /Mardin </em></p>
+                            <ul>
+                                <!-- Pozisyondaki görev ve sorumluluklar listesi -->
+                                <li>Elektrik İç Tesisat Projeleri, Elektrk İç Tesisat Kurulumu, Güneş Enerjisi
+                                    Sistem Proje Tasarımı, Çatı Üstü Güneş Enerjisi Santral Kurulumu ve
+                                    Haritalamalar yaptım</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
+
+                        <div class="resume-item">
+                            <!-- Pozisyon adı -->
+                            <h4>Gönüllü Staj</h4>
+                            <!-- Çalışma dönemi -->
+                            <h5>08.2021-12.2021</h5>
+                            <!-- İş yeri ve konumu, italik yazılmış -->
+                            <p><em>Dicle Elektrik Dağıtım A.Ş /Mardin </em></p>
+                            <ul>
+                                <!-- Pozisyondaki görev ve sorumluluklar listesi -->
+                                <li>Trafo Kabul ve Muayene, Elektrik Tesisatları Kabul ve Muayene, Operasyonel
+                                    Elektrik Kabul ve Muayenelerde aktif olarak rol aldım.</li>
+                            </ul>
+                        </div><!-- Edn Resume Item -->
 
 
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- /Resume Section -->
+        <!-- Portfolio Bölümü Başlangıcı -->
+        <section id="portfolio" class="portfolio section light-background">
+
+            <!-- Bölüm Başlığı ve Açıklaması -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Proje-Sertifikalar</h2>
+                <p>Bu bölümde sizlere, edindiğim deneyimler, tamamladığım çalışmalar ve uzmanlık alanlarımı belgeleyen
+                    sertifikalar
+                    hakkında kısaca bilgi vereceğim. Her biri, kariyerime yön vermemde ve teknik becerilerimi artırmamda
+                    önemli rol oynadı.</p>
+            </div><!-- Bölüm Başlığı Sonu -->
+
+            <div class="container">
+
+                <!-- Isotope filtreleme sistemi için kapsayıcı -->
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+                    <!-- Filtreleme butonları -->
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Tüm elemanları göster -->
+                        <li data-filter="*" class="filter-active">Hepsi</li>
+                        <!-- Sadece uygulama kategorisini göster -->
+                        <li data-filter=".filter-app">Roketler</li>
+                        <!-- Ürün kategorisini göster -->
+                        <li data-filter=".filter-product">Ürünler</li>
+                        <!-- Marka tasarımı kategorisini göster -->
+                        <li data-filter=".filter-branding">Geliştirme Kartları</li>
+                        <!-- Kitap kategorisini göster -->
+                        <li data-filter=".filter-books">Yazılımsal</li>
+                    </ul><!-- Portfolio Filtreleri Sonu -->
+
+                    <!-- Portföy öğelerinin listelendiği satır, isotope konteyner olarak ayarlanmış -->
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                        <!-- Portföy Öğesi - App Kategorisi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <!-- Proje görseli -->
+                                <img src="https://pbs.twimg.com/media/GXNp2whXQAA1O5j?format=jpg&name=4096x4096"
+                                    class="img-fluid" alt="">
+                                <!-- Proje bilgileri -->
+                                <div class="portfolio-info">
+                                    <h4>Roket</h4>
+                                    <p>Örnek Bir Atış</p>
+                                    <!-- Görseli büyütmek için lightbox bağlantısı -->
+                                    <a href="https://pbs.twimg.com/media/GXNp2whXQAA1O5j?format=jpg&name=4096x4096"
+                                        title="Roket" data-gallery="portfolio-gallery-app"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <!-- Proje detay sayfasına bağlantı -->
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Portföy Öğesi - Product Kategorisi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <img src="https://www.robotistan.com/baslangic-seviyesi-diy-robot-kiti-45818-84-O.jpg"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>Otto Robot</h4>
+                                    <p>Yapmış Olduğum Mini Robot</p>
+                                    <a href="https://www.robotistan.com/baslangic-seviyesi-diy-robot-kiti-45818-84-O.jpg"
+                                        title="Otto Robot" data-gallery="portfolio-gallery-product"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Portföy Öğesi - Branding Kategorisi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <div class="portfolio-content h-100">
+                                <img src="https://www.projehocam.com/wp-content/uploads/2021/02/orumcekrobot.jpg"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>Örümcek Robot</h4>
+                                    <p>Yapmış Olduğum Bir Mini Robot</p>
+                                    <a href="https://www.projehocam.com/wp-content/uploads/2021/02/orumcekrobot.jpg"
+                                        title="Örümcek Robot" data-gallery="portfolio-gallery-branding"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Portföy Öğesi - Books Kategorisi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                            <div class="portfolio-content h-100">
+                                <img src="https://media.licdn.com/dms/image/v2/D4D2DAQE13u7JlVZ84Q/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1725642745289?e=1748908800&v=beta&t=KXgLGXHwj0DbcBgxYf9gbD2Nb5mIPNLOjDX3jU3xEQs"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>UKB</h4>
+                                    <p>Uçuş Kontrol Bilgisayarım</p>
+                                    <a href="https://media.licdn.com/dms/image/v2/D4D2DAQE13u7JlVZ84Q/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1725642745289?e=1748908800&v=beta&t=KXgLGXHwj0DbcBgxYf9gbD2Nb5mIPNLOjDX3jU3xEQs"
+                                        title="UKB" data-gallery="portfolio-gallery-book"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Portföy Öğesi - App Kategorisi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <img src="https://miro.medium.com/v2/resize:fit:800/1*glv5HtVOKwb-xh3rvasTHw.jpeg"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>Phyton Projesi</h4>
+                                    <p>Diyabet Tahmini Projesi</p>
+                                    <a href="https://miro.medium.com/v2/resize:fit:800/1*glv5HtVOKwb-xh3rvasTHw.jpeg"
+                                        title="Phyton Projesi" data-gallery="portfolio-gallery-app"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+                        <!-- Ürün kategorisindeki portföy öğesi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <!-- Ürün resmi, responsive olarak görüntülenir -->
+                                <img src="https://maker.robotistan.com/wp-content/uploads/2019/03/RC-araba-ust-gorunum.jpg"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <!-- Ürün başlığı -->
+                                    <h4>RC Araba</h4>
+                                    <!-- Ürün açıklaması -->
+                                    <p>Basit Bir Arduinp Projesi</p>
+                                    <!-- Resmin büyük hali için ışık kutusu (lightbox) bağlantısı -->
+                                    <a href="https://maker.robotistan.com/wp-content/uploads/2019/03/RC-araba-ust-gorunum.jpg"
+                                        title="RC Araba" data-gallery="portfolio-gallery-product"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <!-- Daha fazla detay sayfasına yönlendiren bağlantı -->
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Markalaşma kategorisindeki portföy öğesi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <div class="portfolio-content h-100">
+                                <!-- Markalaşma resmi -->
+                                <img src="https://media.licdn.com/dms/image/v2/D4D2DAQG22RMga6KroQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1692568594136?e=1748908800&v=beta&t=QupK2Mg1xhc3EXck0qGV0JkhwxX-52AYJJYrn35fxi4"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <!-- Başlık -->
+                                    <h4>Trafo Test</h4>
+                                    <!-- Açıklama -->
+                                    <p>Birkaç Güç Trafosu</p>
+                                    <!-- Işık kutusu ile büyük resim aç -->
+                                    <a href="https://media.licdn.com/dms/image/v2/D4D2DAQG22RMga6KroQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1692568594136?e=1748908800&v=beta&t=QupK2Mg1xhc3EXck0qGV0JkhwxX-52AYJJYrn35fxi4"
+                                        title="Trafo Test" data-gallery="portfolio-gallery-branding"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <!-- Detay sayfasına bağlantı -->
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Kitap kategorisindeki portföy öğesi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                            <div class="portfolio-content h-100">
+                                <!-- Kitap resmi -->
+                                <img src="https://i.ytimg.com/vi/RN6RvfO0beo/maxresdefault.jpg" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <!-- Başlık -->
+                                    <h4>DIY Uçak</h4>
+                                    <!-- Açıklama -->
+                                    <p>Basit Bir Uçak</p>
+                                    <!-- Büyük resim ışık kutusu bağlantısı -->
+                                    <a href="https://i.ytimg.com/vi/RN6RvfO0beo/maxresdefault.jpg"
+                                        title="Basit Bir Uçak" data-gallery="portfolio-gallery-book"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <!-- Detaylar sayfasına bağlantı -->
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
+
+                        <!-- Uygulama kategorisindeki portföy öğesi -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <!-- Uygulama resmi -->
+                                <img src="https://i.pinimg.com/736x/30/23/34/3023341ba2fa0945248feb7471d24e06.jpg"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <!-- Başlık -->
+                                    <h4>CNC Makinesi</h4>
+                                    <!-- Açıklama -->
+                                    <p>Bitirme Projesi</p>
+                                    <!-- Büyük resim açma bağlantısı -->
+                                    <a href="https://i.pinimg.com/736x/30/23/34/3023341ba2fa0945248feb7471d24e06.jpg"
+                                        title="Bitirme Projesi" data-gallery="portfolio-gallery-app"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <!-- Daha fazla detay sayfası -->
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div><!-- Portföy Öğesi Sonu -->
 
 
+                        <!-- Portföy konteynerinin sonu -->
+
+                    </div><!-- End Portfolio Container -->
+
+                </div> <!-- container sonu -->
+
+            </div> <!-- ana container sonu -->
+        </section><!-- /Portfolio Section - Portföy bölümü burada sona eriyor -->
+
+        <!-- Services Section - Hizmetler bölümü başlıyor -->
+        <section id="services" class="services section">
+
+            <!-- Section Title - Bölüm başlığı ve açıklaması -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Hizmetler</h2> <!-- Hizmetler başlığı -->
+                <p>
+                    Size teknik bilgiyle harmanlanmış yaratıcı ve çözüm odaklı hizmetler sunuyorum. Elektrik
+                    projelendirme, güneş enerji
+                    sistemleri, PCB tasarımı ve gömülü sistem geliştirme konularında destek veriyorum. Her projeye
+                    özenle yaklaşıyor,
+                    ihtiyaçlarınıza özel çözümler üretiyorum. Hedefim, birlikte verimli ve sürdürülebilir işler ortaya
+                    koymak.
+                </p> <!-- Hizmetler açıklaması -->
+            </div><!-- End Section Title - Bölüm başlığı sona eriyor -->
+
+            <div class="container"><!-- İçerik için ana container -->
+
+                <div class="row gy-4"><!-- Hizmetlerin satır düzeni, aralarındaki boşluk (gy-4) -->
+
+                    <!-- Service Item - Tek bir hizmet öğesi başlıyor -->
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div> <!-- Hizmet simgesi -->
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Elektrik
+                                    Projelendirme</a></h4>
+                            <!-- Hizmet başlığı, tıklanabilir -->
+                            <p class="description">Elektrik projelendirme süreçlerinde, yapıya ve ihtiyaca uygun
+                                çözümler üretiyorum. Uygulama öncesi planlama, çizim ve
+                                hesaplamaları dikkatle yaparak güvenli ve yönetmeliklere uygun projeler sunuyorum.</p>
+                            <!-- Hizmet açıklaması -->
+                        </div>
+                    </div>
+                    <!-- End Service Item - Hizmet öğesi burada sona eriyor -->
+
+                    <!-- Service Item - Başka bir hizmet öğesi -->
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">PCB Tasarımı</a>
+                            </h4>
+                            <p class="description">Devre kartı tasarımlarında, ihtiyaç duyulan elektronik sistemleri en
+                                verimli şekilde planlayıp çiziyorum. Proteus,
+                                EasyEDA gibi yazılımlarla düzenli, işlevsel ve üretime uygun PCB'ler hazırlıyorum.</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <!-- Service Item - Bir diğer hizmet öğesi -->
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Elektrik
+                                    İletim-Dağıtım
+                                </a></h4>
+                            <p class="description">Elektrik iletim ve dağıtım süreçlerinde, sahada aktif görev alarak
+                                trafo, direk değişimi ve kablolama gibi çalışmalarda
+                                deneyim kazandım. Güvenli, verimli ve yönetmeliklere uygun sistemlerin kurulmasına özen
+                                gösteriyorum.</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <!-- Service Item - Hizmet öğesi devamı -->
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Yazılım</a>
+                            </h4>
+                            <p class="description">Yazılım alanında hem donanımla entegre çalışan projeler geliştirdim
+                                hem de bağımsız uygulamalar oluşturdum. Python başta
+                                olmak üzere çeşitli dillerle çalışarak algoritma mantığını benimsedim ve projelerimde
+                                pratik çözümler üretmeye
+                                odaklandım.</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <!-- Service Item - Bir başka hizmet öğesi -->
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Güneş Enejisi</a>
+                            </h4>
+                            <p class="description">Yenilenebilir enerjiye özellikle güneş enerjisi sistemlerine ilgi
+                                duyuyorum. Çatı üstü GES projelerinde aktif rol alarak
+                                tasarım, teklif ve kurulum süreçlerine katkı sağladım. Yazılımlar ve saha tecrübeleriyle
+                                bu alanda kendimi geliştirmeye
+                                devam ediyorum.</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <!-- Service Item - Son hizmet öğesi -->
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+                        <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Havacılık
+                                    Elektroniği</a>
+                            </h4>
+                            <p class="description">Aviyonik sistemler ve roket teknolojileri alanında çalışmalar
+                                yapıyorum. Uçuş kontrol kartları ve yer istasyonu
+                                tasarımları üzerinde deneyim sahibiyim. Takım çalışmasına önem veriyor, sorumluluk
+                                almaktan keyif alıyorum. Sürekli
+                                öğrenme ve gelişme motivasyonum yüksek.</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                </div><!-- End row - Hizmetler satır düzeni burada sona eriyor -->
+
+            </div><!-- End container - İçerik container'ı burada sona eriyor -->
+
+        </section><!-- End Services Section - Hizmetler bölümü burada sona eriyor -->
+        </section><!-- /Services Section -->
 
 
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
 
+            <!-- Bölüm başlığı -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>İletişim</h2>
+                <p>Daha fazlası için bir tık ötendeyim!!</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-5">
+
+                        <div class="info-wrap">
+                            <!-- Adres bilgisi -->
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                <div>
+                                    <h3>Adres</h3>
+                                    <p>33730 Erdemli/Mersin</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <!-- Telefon bilgisi -->
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                                <i class="bi bi-telephone flex-shrink-0"></i>
+                                <div>
+                                    <h3>Bana Ulaşın</h3>
+                                    <p>+90 505 029 86 48</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <!-- E-posta bilgisi -->
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-envelope flex-shrink-0"></i>
+                                <div>
+                                    <h3>Email </h3>
+                                    <p>fckaratas47@gmail.com</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <!-- Google Haritalar iframe ile konum gösterimi -->
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2263.827064237474!2d34.35390267115446!3d36.63757959238297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d87b00718612c1%3A0x81c155d4138b4937!2sMnz%20Ba%C5%9Faran%20Gold%20City!5e0!3m2!1str!2str!4v1748304966557!5m2!1str!2str"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <!-- İletişim formu -->
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <label for="name-field" class="pb-2">Adınız</label>
+                                    <!-- İsim girişi -->
+                                    <input type="text" name="name" id="name-field" class="form-control" required="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email-field" class="pb-2">Mailiniz</label>
+                                    <!-- Email girişi -->
+                                    <input type="email" class="form-control" name="email" id="email-field" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="subject-field" class="pb-2">Konu</label>
+                                    <!-- Konu girişi -->
+                                    <input type="text" class="form-control" name="subject" id="subject-field"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="message-field" class="pb-2">Mesajınız</label>
+                                    <!-- Mesaj alanı -->
+                                    <textarea class="form-control" name="message" rows="10" id="message-field"
+                                        required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <!-- Gönderim durumları -->
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Mesajınız İletilmiştir.Teşekkürler!</div>
+
+                                    <!-- Form gönderme butonu -->
+                                    <button type="submit">Mesaj Gönder</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
+                </div>
+
+            </div>
+        </section><!-- /Contact Section --> <!-- İletişim bölümünün sonu -->
+
+    </main> <!-- Ana içerik alanının kapanışı -->
+
+    <footer id="footer" class="footer position-relative light-background">
+        <!-- Sayfanın alt kısmındaki footer bölümü -->
+
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Fasih Can Karataş</strong> <span>All Rights
+                        Reserved</span></p>
+                <!-- Telif hakkı bilgisi ve site adı -->
+            </div>
+            <div class="credits">
+                <!-- Footer altındaki tasarımcı ve dağıtıcı bilgileri -->
+                <!-- Footer'daki tüm bağlantılar korunmalıdır. -->
+                <!-- Pro sürümü satın almadıysanız bağlantıları silemezsiniz. -->
+                <!-- Lisans bilgisi: https://bootstrapmade.com/license/ -->
+                <!-- PHP/AJAX iletişim formu ile çalışan pro sürümü satın almak için: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+                    href="https://themewagon.com">ThemeWagon</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+    <!-- Sayfa yukarı kaydırma butonu -->
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+    <!-- Sayfa yüklenirken görünen animasyon -->
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap'ın JavaScript dosyası, responsive ve bileşenler için -->
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- İletişim formu doğrulama scripti -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <!-- Scroll animasyonları için AOS kütüphanesi -->
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <!-- Yazı yazma animasyonu için Typed.js -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <!-- Sayı sayaç animasyonları için PureCounter -->
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <!-- Sayfa kaydırma konumlarını algılamak için Waypoints -->
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <!-- Resim ve video açılır pencere efekti için GLightbox -->
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <!-- Görüntülerin tam yüklendiğini kontrol etmek için -->
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <!-- Dinamik ızgara düzeni için Isotope kütüphanesi -->
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Slider/Carousel için Swiper kütüphanesi -->
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Projenin ana JavaScript dosyası -->
 
 </body>
 
